@@ -1,0 +1,403 @@
+/* Importar fuente */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Fondo general del body (puede cambiar con dificultad) */
+    background-color: #f0f0f0; /* Gris muy claro por defecto */
+    margin: 0;
+    padding: 20px; /* Un poco menos padding */
+    box-sizing: border-box;
+    transition: background-color 0.5s ease; /* Transición suave del fondo */
+    image-rendering: pixelated; /* Mejor renderizado de fuente pixel */
+}
+
+.container {
+    background-color: #ffffff; /* Fondo blanco principal del contenedor */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center;
+    border: 3px solid #333; /* Borde negro general */
+    max-width: 95%; /* Limita ancho máximo */
+    width: fit-content; /* Ajusta el ancho al contenido */
+}
+
+/* --- Estilos Base Botones (Se sobreescribirán por sección) --- */
+button {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff; /* Texto blanco por defecto */
+    border-radius: 8px;
+    padding: 12px 25px;
+    margin: 15px;
+    cursor: pointer;
+    font-size: 1.1em; /* Ligeramente más pequeño */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    text-shadow: 1px 1px #000000; /* Sombra negra estándar */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    border-width: 3px;
+    border-style: solid;
+    user-select: none; /* Evita seleccionar texto en botones */
+    -webkit-user-select: none;
+}
+button:hover {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px); /* Ligero efecto al pasar ratón */
+}
+button:active {
+     transform: translateY(1px); /* Efecto al presionar */
+     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+/* --- Theming por Sección --- */
+
+/* 1. Menú Principal (Azul) */
+#main-menu {
+    background-color: #e0f2f7; /* Fondo Azul Clarito */
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #4dd0e1; /* Borde azul */
+}
+#main-menu h1 {
+    color: #00bcd4; /* Azul principal */
+    text-shadow: 3px 3px #000000, 5px 5px #007a8a; /* Sombra ajustada */
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+#main-menu button {
+    background-color: #4dd0e1; /* Botones Azul Claro */
+    border-color: #0097a7; /* Borde Azul Oscuro */
+}
+#main-menu button:hover {
+    background-color: #00bcd4; /* Azul Principal Hover */
+}
+
+/* 2. Puntuaciones Altas (Amarillo) */
+#high-scores-screen {
+    background-color: #fffde7; /* Fondo Amarillo Pálido */
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #ffca28; /* Borde Amarillo */
+}
+#high-scores-screen h2 {
+    color: #ffb300; /* Amarillo/Naranja */
+    text-shadow: 2px 2px #000, 3px 3px #8d6e63; /* Sombra Marrón */
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+#high-scores-screen button { /* Botón "Menú Principal" */
+    background-color: #ffca28; /* Amarillo */
+    border-color: #ffb300; /* Amarillo Oscuro */
+}
+#high-scores-screen button:hover {
+    background-color: #ffb300;
+}
+#high-scores-screen ol {
+    list-style-type: decimal;
+    padding-left: 40px; /* Más padding */
+    text-align: left;
+    font-size: 1.1em;
+    color: #4e342e; /* Texto Marrón Oscuro */
+    text-shadow: none;
+    max-height: 300px; /* Limita altura y permite scroll */
+    overflow-y: auto;
+    margin-top: 20px;
+    background-color: #fff3e0; /* Fondo naranja muy pálido para la lista */
+    border: 1px solid #ffe0b2;
+    padding: 15px;
+    border-radius: 4px;
+}
+#high-scores-screen ol li {
+    margin-bottom: 8px;
+    color: #000; /* Texto de puntuaciones negro */
+}
+#high-scores-screen ol li::marker { /* Estilo de los números */
+     color: #ffb300; /* Números amarillos */
+     font-weight: bold;
+}
+
+
+/* 3. Selección de Dificultad (Botones Específicos) */
+#difficulty-screen {
+    background-color: #f5f5f5; /* Fondo Gris Neutral */
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #bdbdbd; /* Borde Gris */
+}
+#difficulty-screen h2 {
+     color: #ffb300; /* Mantenemos título amarillo/naranja */
+     text-shadow: 2px 2px #000, 3px 3px #8d6e63;
+     margin-bottom: 25px;
+     font-size: 2em;
+}
+/* Colores específicos para botones de dificultad */
+#difficulty-screen button[data-difficulty="easy"] {
+    background-color: #66bb6a; /* Verde */
+    border-color: #388e3c;
+}
+#difficulty-screen button[data-difficulty="easy"]:hover {
+    background-color: #43a047;
+}
+#difficulty-screen button[data-difficulty="normal"] {
+    background-color: #ffa726; /* Naranja Amarilloso */
+    border-color: #f57c00;
+}
+#difficulty-screen button[data-difficulty="normal"]:hover {
+    background-color: #fb8c00;
+}
+#difficulty-screen button[data-difficulty="hard"] {
+    background-color: #ef5350; /* Rojo */
+    border-color: #d32f2f;
+}
+#difficulty-screen button[data-difficulty="hard"]:hover {
+    background-color: #e53935;
+}
+#difficulty-screen #back-to-menu-from-difficulty { /* Botón Atrás */
+     background-color: #bdbdbd; /* Gris */
+     border-color: #757575;
+     color: #212121; /* Texto oscuro */
+     text-shadow: none;
+}
+#difficulty-screen #back-to-menu-from-difficulty:hover {
+     background-color: #9e9e9e;
+}
+
+/* 4. Pantalla de Juego (Estilos Base + Dinámicos por JS/Clase) */
+#game-screen {
+    /* Modificado: ahora es columna para acomodar controles */
+    display: flex;
+    flex-direction: column; /* Apila canvas, info y controles verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 15px; /* Espacio reducido entre canvas, info y controles */
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    /* El fondo cambia por dificultad */
+    background-color: #e0e0e0; /* Fondo gris claro por defecto */
+    border: 2px solid #9e9e9e; /* Borde gris por defecto */
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+#gameCanvas {
+    /* Fondo y borde se aplicarán dinámicamente desde JS */
+    background-color: #d0d0d0; /* Fallback */
+    border: 5px solid #777; /* Fallback */
+    border-radius: 5px;
+    /* quitamos margen superior porque flex-direction column y gap lo manejan */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3); /* Sombra interior */
+}
+.game-info {
+    display: flex;
+    /* Modificado: ahora en fila y centrado */
+    flex-direction: row; /* Paneles de info lado a lado */
+    justify-content: space-around; /* Espacio entre paneles y botón pausa */
+    align-items: center; /* Centra verticalmente */
+    gap: 15px; /* Espacio entre paneles de info y botón */
+    margin-top: 0;
+    font-size: 1em; /* Tamaño base de fuente info */
+    color: #333; /* Color texto base info */
+    text-shadow: none;
+    width: 100%; /* Ocupa ancho para distribuir espacio */
+    max-width: 450px; /* Un ancho máximo razonable */
+}
+.info-panel {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semi-transparente */
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    min-width: 130px; /* Ancho mínimo para cada panel */
+}
+.info-panel div {
+    margin-bottom: 8px;
+    color: #000; /* Texto negro para etiquetas */
+}
+.info-panel div:last-child {
+     margin-bottom: 0;
+}
+.info-panel span { /* Los valores (números) */
+    color: #111; /* Color por defecto para valores */
+    font-weight: bold;
+    float: right; /* Alinea números a la derecha */
+    /* El color cambiará según dificultad vía clase en body */
+    transition: color 0.5s ease;
+}
+#next-piece {
+    display: flex; /* Para centrar el canvas */
+    justify-content: center;
+    align-items: center;
+    min-height: 60px; /* Altura mínima para el contenedor */
+}
+
+#next-piece canvas {
+    border: 2px dashed #888; /* Borde más sutil */
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+    /* margin-top: 5px; Espacio sobre canvas siguiente pieza (ya no necesario aquí) */
+}
+#game-screen #pause-button {
+    font-size: 1em;
+    padding: 10px 15px;
+    margin: 0; /* Quitamos márgenes automáticos */
+    /* Colores se definirán por dificultad/clase */
+    background-color: #757575; /* Gris por defecto */
+    border-color: #424242;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+    flex-shrink: 0; /* Evita que el botón de pausa se encoja */
+}
+#game-screen #pause-button:hover {
+     background-color: #616161;
+}
+
+/* 5. Fin del Juego (Naranja) */
+#game-over-screen {
+    background-color: #fff3e0; /* Fondo Naranja Pálido */
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #ffcc80; /* Borde Naranja Claro */
+}
+#game-over-screen h2 {
+    color: #ff9800; /* Título Naranja */
+    text-shadow: 2px 2px #000, 3px 3px #e65100; /* Sombra Naranja Oscuro */
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+#game-over-screen p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #bf360c; /* Texto Naranja Quemado */
+    text-shadow: none;
+}
+#game-over-screen span { /* Valores finales */
+    color: #f57c00; /* Naranja más brillante */
+    font-weight: bold;
+}
+#new-record-message {
+    color: #e65100; /* Naranja Oscuro */
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-top: 15px;
+    text-shadow: none;
+}
+#game-over-screen button {
+     background-color: #ffa726; /* Botones Naranja */
+     border-color: #f57c00;
+}
+#game-over-screen button:hover {
+     background-color: #fb8c00;
+}
+
+
+/* --- Otros Elementos --- */
+.hidden {
+    display: none !important; /* Asegura que se oculte */
+}
+
+#countdown-screen {
+    position: fixed; /* Fijo en la pantalla */
+    top: 0; left: 0; width: 100%; height: 100%; /* Ocupa todo */
+    background-color: rgba(0, 0, 0, 0.85); /* Más oscuro */
+    display: flex; /* Centra el texto */
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Por encima de todo */
+}
+
+#countdown-text {
+    font-size: 7em; /* Aún más grande */
+    color: #ffeb3b; /* Amarillo */
+    text-shadow: 4px 4px #000, 7px 7px #f57f17; /* Sombra naranja oscuro */
+}
+
+/* --- Estilos Dinámicos por Dificultad (Activados con clase en body) --- */
+
+/* Fácil (Verde) */
+body.difficulty-easy #game-screen { background-color: #e8f5e9; border-color: #a5d6a7; }
+body.difficulty-easy #game-screen .info-panel span { color: #2e7d32; }
+body.difficulty-easy #game-screen #pause-button { background-color: #66bb6a; border-color: #388e3c; }
+body.difficulty-easy #game-screen #pause-button:hover { background-color: #43a047; }
+
+/* Normal (Amarillo/Naranja) */
+body.difficulty-normal #game-screen { background-color: #fffde7; border-color: #fff59d; }
+body.difficulty-normal #game-screen .info-panel span { color: #ff8f00; }
+body.difficulty-normal #game-screen #pause-button { background-color: #ffa726; border-color: #f57c00; }
+body.difficulty-normal #game-screen #pause-button:hover { background-color: #fb8c00; }
+
+/* Difícil (Rojo) */
+body.difficulty-hard #game-screen { background-color: #ffebee; border-color: #ef9a9a; }
+body.difficulty-hard #game-screen .info-panel span { color: #c62828; }
+body.difficulty-hard #game-screen #pause-button { background-color: #ef5350; border-color: #d32f2f; }
+body.difficulty-hard #game-screen #pause-button:hover { background-color: #e53935; }
+
+/* === INICIO: NUEVOS ESTILOS CONTROLES MÓVILES === */
+#mobile-controls {
+    width: 100%; /* Ocupa el ancho disponible */
+    max-width: 300px; /* Limita el ancho máximo de los controles */
+    margin-top: 15px; /* Espacio sobre los controles */
+    display: flex;
+    flex-direction: column; /* Apila las filas de controles */
+    align-items: center; /* Centra las filas */
+    gap: 10px; /* Espacio entre filas */
+    padding: 10px 0; /* Padding vertical, sin padding horizontal */
+    box-sizing: border-box;
+    /* Opcional: Ocultar en pantallas grandes con CSS puro */
+    /* @media (min-width: 768px) {
+        display: none;
+    } */
+}
+
+.controls-row {
+    display: flex;
+    justify-content: center; /* Centra botones dentro de la fila */
+    gap: 15px; /* Espacio entre botones en la misma fila */
+    width: 100%; /* Ocupa el ancho del contenedor padre (#mobile-controls) */
+}
+
+.control-button {
+    font-family: 'Press Start 2P', cursive; /* Misma fuente */
+    font-size: 1.6em; /* Tamaño ajustado para botones */
+    color: #ffffff;
+    background-color: #555555; /* Un color base gris oscuro */
+    border: 3px solid #333333;
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 12px; /* Padding ajustado */
+    margin: 0; /* Quitamos margen individual, usamos gap */
+    min-width: 65px; /* Ancho mínimo */
+    min-height: 65px; /* Alto mínimo */
+    display: flex; /* Para centrar el texto/icono */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    user-select: none; /* Evita seleccionar texto en el botón */
+    -webkit-user-select: none; /* Safari */
+    touch-action: manipulation; /* Mejora respuesta táctil y evita zoom */
+    flex-grow: 1; /* Permite que los botones crezcan si hay espacio */
+    flex-basis: 0; /* Base para crecimiento */
+    max-width: 90px; /* Limita el ancho máximo */
+    line-height: 1; /* Asegura que el texto no cause altura extra */
+}
+/* Ajuste específico para el botón de bajar si hay 3 en la fila */
+.controls-row > .control-button#move-down-btn {
+    flex-grow: 0.5; /* Que no crezca tanto como los laterales */
+}
+
+.control-button:hover { /* Efecto en PC */
+    background-color: #666666;
+    transform: translateY(-1px);
+}
+
+.control-button:active { /* Efecto al presionar (importante para móvil) */
+    background-color: #444444;
+    transform: translateY(1px);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+/* === FIN: NUEVOS ESTILOS CONTROLES MÓVILES === */
