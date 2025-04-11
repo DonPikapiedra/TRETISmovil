@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Tretis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="main-menu">
+            <h1>TRETIS</h1>
+            <button id="start-button">Iniciar</button>
+            <button id="high-scores-button">Puntuaciones Altas</button>
+        </div>
+
+        <div id="difficulty-screen" class="hidden">
+            <h2>Seleccionar Dificultad</h2>
+            <button data-difficulty="easy">Fácil</button>
+            <button data-difficulty="normal">Normal</button>
+            <button data-difficulty="hard">Difícil</button>
+            <button id="back-to-menu-from-difficulty">Atrás</button>
+        </div>
+
+        <div id="countdown-screen" class="hidden">
+            <p id="countdown-text"></p>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <div class="game-info">
+                <div class="info-panel">
+                    <div>Siguiente:</div> <div id="next-piece"></div> </div>
+                <div class="info-panel score-level-panel"> <div>Puntaje: <span id="score">0</span></div>
+                    <div>Nivel: <span id="level">1</span></div>
+                    <div>Récord: <span id="record">0</span></div>
+                </div>
+                <button id="pause-button">||</button> </div>
+
+            <canvas id="gameCanvas" width="300" height="600"></canvas>
+
+            <div id="mobile-controls">
+                <div class="controls-row">
+                    <button id="rotate-btn" class="control-button">↻</button>
+                </div>
+                <div class="controls-row">
+                    <button id="move-left-btn" class="control-button">←</button>
+                    <button id="move-down-btn" class="control-button">↓</button>
+                    <button id="move-right-btn" class="control-button">→</button>
+                </div>
+                 <div class="controls-row">
+                     <button id="drop-btn" class="control-button">↓↓</button>
+                 </div>
+            </div>
+        </div>
+
+        <div id="game-over-screen" class="hidden">
+            <h2>¡Fin del Juego!</h2>
+            <p>Puntaje Final: <span id="final-score"></span></p>
+            <p>Nivel Alcanzado: <span id="final-level"></span></p>
+            <p>Líneas Eliminadas: <span id="final-lines"></span></p>
+            <p id="new-record-message" class="hidden">¡Nuevo Récord!</p>
+            <button id="play-again-button">Jugar de Nuevo</button>
+            <button id="back-to-menu-from-game-over">Menú Principal</button>
+        </div>
+
+        <div id="high-scores-screen" class="hidden">
+            <h2>Puntuaciones Altas</h2>
+            <ol id="high-scores-list" class="score-list"></ol>
+            <button id="back-to-menu-from-high-scores">Menú Principal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
